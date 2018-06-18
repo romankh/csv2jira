@@ -28,8 +28,6 @@ if __name__ == '__main__':
     password = arguments.p
     input_file = arguments.i
 
-    print server, username, password
-
     # read csv
     with open(input_file.name, 'rb') as csv_file:
         try:
@@ -46,11 +44,13 @@ if __name__ == '__main__':
                 # print project_key, issue_type, summary, description, assignee
 
                 issue_data = {
-                    'project': {'id': project_key},
+                    'project': {'key': project_key},
                     'issuetype': {'name': issue_type},
                     'summary': summary,
                     'description': description
                 }
+                
+                print issue_data
 
                 # would be nice to have:
                 # duedate='2016-11-11', timeestimate='2.5', sprint (which field ?), component,
